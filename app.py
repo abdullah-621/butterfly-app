@@ -105,7 +105,7 @@ def load_model():
     # Import inside function so Streamlit Cloud only loads TF when needed
     try:
         import keras
-        model_path = "butterfly_model.keras"
+        model_path = "butterfly_model.tflite"
         names_path = "class_names.json"
 
         if not os.path.exists(model_path):
@@ -113,7 +113,7 @@ def load_model():
             model_path = "butterfly_model.h5"
 
         if not os.path.exists(model_path):
-            return None, {}, "❌ Model file not found. Add `butterfly_model.keras` to the repo."
+            return None, {}, "❌ Model file not found. Add `butterfly_model.tflite` to the repo."
 
         if not os.path.exists(names_path):
             return None, {}, "❌ `class_names.json` not found. Add it to the repo."
